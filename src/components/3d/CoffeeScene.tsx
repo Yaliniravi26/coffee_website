@@ -1,4 +1,4 @@
-import { Suspense, memo } from 'react';
+import { Suspense, memo, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import CoffeeHouseArchitecture from './CoffeeHouseArchitecture';
 import PendantLamps from './PendantLamps';
@@ -83,9 +83,13 @@ const CoffeeScene = memo(function CoffeeScene({
   isMobile,
   reducedMotion,
 }: CoffeeSceneProps) {
+  const [isCanvasReady, setIsCanvasReady] = useState(false);
+
   return (
-    <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-[#100A08]">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_52%_42%,rgba(108,61,35,0.32)_0%,rgba(33,18,12,0.72)_42%,#100A08_82%)]" />
       <Canvas
+        className={`transition-opacity duration-700 ${isCanvasReady ? 'opacity-100' : 'opacity-0'}`}
         camera={{
           position: [0, 3.3, 10],
           fov: 46,
@@ -103,6 +107,7 @@ const CoffeeScene = memo(function CoffeeScene({
         onCreated={({ gl, scene }) => {
           gl.setClearColor('#100A08', 1);
           scene.background = null;
+          setIsCanvasReady(true);
         }}
       >
         <Suspense fallback={null}>
