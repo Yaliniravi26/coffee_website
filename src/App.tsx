@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Download } from 'lucide-react';
 import CoffeeScene from './components/3d/CoffeeScene';
 import Header from './components/overlay/Header';
 import HeroSection from './components/overlay/HeroSection';
@@ -10,7 +9,6 @@ import TheMenuSection from './components/overlay/TheMenuSection';
 import EveningSection from './components/overlay/EveningSection';
 import CoffeeDetailModal from './components/overlay/CoffeeDetailModal';
 import ContactModal from './components/overlay/ContactModal';
-import DownloadModal from './components/overlay/DownloadModal';
 import { CoffeeStyle, MenuItem } from './types';
 import { cafeSoundscape } from './utils/audioSynth';
 
@@ -21,7 +19,6 @@ export default function App() {
   const [reducedMotion, setReducedMotion] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<CoffeeStyle | MenuItem | null>(null);
   const [contactModalType, setContactModalType] = useState<'contact' | 'location' | null>(null);
-  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState<boolean>(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
 
   // Section references for precise navigation
@@ -114,7 +111,6 @@ export default function App() {
         activeSection={activeSection}
         isAudioPlaying={isAudioPlaying}
         onToggleAudio={toggleAudio}
-        onOpenDownload={() => setIsDownloadModalOpen(true)}
       />
 
       {/* 3. VERTICAL PROGRESS BAR (Right edge) */}
@@ -143,7 +139,6 @@ export default function App() {
         <div ref={(el) => { sectionRefs.current[0] = el; }}>
           <HeroSection
             onExplore={() => scrollToSection(1)}
-            onOpenDownload={() => setIsDownloadModalOpen(true)}
           />
         </div>
 
@@ -189,11 +184,6 @@ export default function App() {
           type={contactModalType}
           onClose={() => setContactModalType(null)}
         />
-      )}
-
-      {/* 7. DEDICATED PROJECT ZIP DOWNLOAD MODAL */}
-      {isDownloadModalOpen && (
-        <DownloadModal onClose={() => setIsDownloadModalOpen(false)} />
       )}
 
     </div>

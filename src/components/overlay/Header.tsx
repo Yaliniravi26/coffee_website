@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Volume2, VolumeX, Download } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 interface HeaderProps {
   onScrollToTop: () => void;
@@ -7,7 +7,6 @@ interface HeaderProps {
   activeSection: number;
   isAudioPlaying: boolean;
   onToggleAudio: () => void;
-  onOpenDownload?: () => void;
 }
 
 export default function Header({
@@ -16,7 +15,6 @@ export default function Header({
   activeSection,
   isAudioPlaying,
   onToggleAudio,
-  onOpenDownload,
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -109,15 +107,6 @@ export default function Header({
             )}
           </button>
 
-          {/* Download Code ZIP button */}
-          <button
-            onClick={onOpenDownload}
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full border border-[#C88A58]/40 bg-[#C88A58]/15 hover:bg-[#C88A58]/25 hover:border-[#C88A58] text-[#E2A66C] transition-all cursor-pointer text-xs font-mono"
-            title="Download complete project ZIP file"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span className="font-semibold tracking-wider">ZIP</span>
-          </button>
         </div>
       </div>
     </header>

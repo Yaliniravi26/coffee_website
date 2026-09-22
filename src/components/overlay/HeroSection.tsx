@@ -1,11 +1,10 @@
-import { ArrowDown, Sparkles, Download } from 'lucide-react';
+import { ArrowDown, Sparkles } from 'lucide-react';
 
 interface HeroSectionProps {
   onExplore: () => void;
-  onOpenDownload?: () => void;
 }
 
-export default function HeroSection({ onExplore, onOpenDownload }: HeroSectionProps) {
+export default function HeroSection({ onExplore }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen w-full flex flex-col justify-between px-6 sm:px-12 pt-32 pb-16 pointer-events-auto">
       {/* Top Eyebrow */}
@@ -38,15 +37,6 @@ export default function HeroSection({ onExplore, onOpenDownload }: HeroSectionPr
               <span>EXPLORE THE COLLECTION</span>
             </button>
 
-            {onOpenDownload && (
-              <button
-                onClick={onOpenDownload}
-                className="inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-full bg-[#18100C]/90 hover:bg-[#251A13] border border-[#C88A58]/50 hover:border-[#C88A58] text-[#E2A66C] font-mono text-xs font-medium tracking-[0.15em] uppercase transition-all duration-300 cursor-pointer backdrop-blur-sm"
-              >
-                <Download className="w-3.5 h-3.5" />
-                <span>DOWNLOAD CODE (.ZIP)</span>
-              </button>
-            )}
           </div>
         </div>
       </div>
