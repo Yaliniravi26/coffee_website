@@ -1,0 +1,6 @@
+{
+  "name": "AURELIA COFFEE HOUSE",
+  "description": "Discover a cinematic coffee journey from carefully selected beans to your perfect cup. Brewed for the moment.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

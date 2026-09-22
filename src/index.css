@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #100A08;
+    color: #F3EFEA;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom dark scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #140D0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #38241B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #684232;
+}
+
+/* Glass effect for editorial cards */
+.glass-espresso {
+  background: rgba(16, 10, 8, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(200, 138, 88, 0.16);
+}
+
+.glass-espresso-hover:hover {
+  background: rgba(26, 17, 13, 0.82);
+  border-color: rgba(200, 138, 88, 0.35);
+}
+
+/* Subtle coffee noise/grain */
+.grain-overlay {
+  background-image: radial-gradient(rgba(212, 160, 23, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
